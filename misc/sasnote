@@ -1,0 +1,160 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    sasnote                                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: sopark <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/10/30 17:44:23 by sopark            #+#    #+#              #
+#    Updated: 2016/10/30 21:46:29 by sopark           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+sasnote:
+
+if size = 1, then it would run pyramid(2, 2, 3, 1)
+
+and this is same thing as, inside the pyramid subfunction, 
+
+empt = 2, jump_no = 2, line_jump = 3, len_door = 1,
+
+then, now this is going to pass the while (empt + 1) but it won't pass the if inside there, since i=0 and line_jump is 3. 
+
+Then, it is going to go to empt = print_roof(0, 2, 1)
+
+which then is, inside print_roof, line_no=0, empt=2, len_door=1, 
+
+then wid_door = -1/2, i=0.
+
+and this prints out the first line. then it goes back to pyramid subfunction and empt sets back to 1. (from return command in print_roof subfunction)
+
+then, i++ so, i is now 1 instead of 0 in pyramid subfunction. 
+
+then while (empt + 1) which is 2 in the value so it passes, and 
+
+line jump was 3 so it still isn't the same as i. so, it goes to empt = print_roof(1, 1, 1) [length of door stays the same]
+
+then, for the print_roof(1,1,1), 
+
+line_no=1, empt=1, len_door=1
+
+then wid_door = -1/2
+i = 0
+
+and while (0 < 1), it s gonna print left-most space, then get out of this while, and
+
+it goes to print out the left roof. now, set i back to 0.
+
+while (0 <= 1*2) it passes,
+	but while ((0 == -1/2)) still doesn't pass, so it goes to ft_putchar('*'), and i++, so i is now 1
+	and goes back up to while(i <= line_no *2) which is while(1 <= 2), so prints out again, then while (2 <= 2), 
+	so it prints out again, then we have three stars, and while condition doesnt pass anymore since i=3. 
+	then ft_putchar and right most roof, then enter, then return empt as 0.
+
+Now, the whole thing goes back to empt=0, then i is now 2 in pyrmamid.
+
+and inside the while(empt + 1), it is a value of 1, so it is going to run. 
+
+It still doesn't run if statement since 2 is not 3 of line_jump. So, it will go to empt = print_roof(2, 0, 1)
+
+so, it goes back to print_roof, and line_no=2, empt=0, len_door=1.
+
+at this point, it will pass the while since i is not less than empt, so it goes to print left-most roof right away. then, i is again 0 then, while i=0 is less than lineno(2) * 2 which is 4, 
+
+it goes into ft_putchar, and it is going to print the inner, then i++ so i=1, and 1 is less than 4 so goes in again, and goes to ft_putchar, then goes to i=2, then goes back up, and it s going to do this until 4th. then, 
+empt=-1 in pyramid, and i is 3 now.
+
+then, inside the while, it is 0, so it will pass. and it ends. 
+
+ok, the problem. why while((i == line_no + wid_door) can be true.
+
+
+ok so lets go on to when the size is 2.
+
+if the size is 2.
+
+	empt = 12, j=1.
+
+	then, size gets to 1. and pyramid(8, 2, 3, 1);
+
+		now on pyramid(8,2,3,1)
+		i=0, j=1, jump=4,
+
+		while(9)
+		{
+			empt = print_roof(0, 8, 1);
+				
+				so going to print_roof(0,8,1);
+				wid_door = -(1/2);
+				i=0;
+
+				while(0<8){
+					print empts.
+				}
+				then print left_most roof, then i sets to 0 again. 
+
+				then do star and the right-most roof, then enter, then return empt as 7 and i is 1.
+				now in the pyramid, it is pyramid(7, 2, 3, 1) while having i as 1.
+				then, while(8), 1 is still not equal to 3 so doesn't jump, and goes to 
+				empt = print_roof(1, 7, 1)
+
+				in print roof(1,7,1)
+				wid_door=-(1/2)
+				putting empty spaces for 7 spaces, then left-most roof, then right most roof, then return empts as 6
+
+				then now in the pyramid, it is pyramid(6,2,3,1) with i being 2 for pyramid.
+				then, while(7), 2 is still not equal to 3, so no jump. and goes to 
+				empt = print_roof(2, 6, 1)
+
+				in print roof(2,6,1)
+				wid_door = -(1/2)
+				i=0;
+				putting empty spaces for 6 spaces, then left-most roof, then right most roof, then return empts as 5
+
+				then now in the pyramid, it is pyramid(5,2,3,1) with i being 3.
+				then, for while(6), 3 EQUALS the jump_no so goes in to the if statement for the first time.
+					then, i += jump_no, so it is i=3, so i becomes 5.
+					then, empt -= jump_no, so empt was 5, and jump_no is 2, so empts becomes 3.
+					then, line_jump = i + jump and jump is default set up as 4, and i is 5, so line_jump = 9
+					then jump++, so jump is now 5 from 4 (a default)
+
+					then, if (j==2), where j was 1, so it doesn't pass. so, it goes to j++, now j is 2.
+
+					then, commands end and goes to empts = print_roof(5, 3, 1)
+					then, inside the print_roof, 
+					wid_door = -(1/2)
+					i=0
+					while(0<3), it prints out 3 spaces. then prints out prints left-most roof, and i=0 again.
+						then, while (0<=10),
+								while ((0 == 5+(-1/2)) is not true so goes to print the star, and i becomes 1.
+									then it goes back up for 10 times, and it s gonna print out 10 more stars
+									so in total its 11 stars. then i will become 11 and it will close with 
+									right-most roof, and then enter. then empt is now 2 for pyramid.
+									
+									
+					from here, i becomes 6 for pyramid, and goes back up for while(empt + 1), where empt is 2.
+					
+					so while (3)
+						if (1 == 9) is not true, so goes to empt=print_roof(6, 2, 1)
+							then this will print out 2 spaces then print out left-most roof, then i=0 again.
+							then while (0 < 12), it is going to print out 13 stars and i becomes 13, so close down 
+							with the right-most roof, and then enter. then empts is 1 for pyramid, and 
+							i FOR THE PYRAMID is now 7. so print_roof(7, 1, 1);
+
+							then, going back to print_roof, it is going to print while (0<1),
+							so print 1 empty space, and close left-most roof, then i is 0 again inside print_roof
+							then, goes to while (0 <= 14), so it is going to print out 15 stars then i=15, so close
+							then close it with the right-most roof, and enter, and return 0 which is 
+							empt value for pyramid. So, now inside the pyramid, print_roof(8,0,1) and i is 7.
+
+							so back to print_roof, it will print no space at all since empts is 0.
+							then goes to ft_putchar('/') right away, then i = 0, and at THIS POINT,
+							wid_door WAS declared = -(len_door / 2) so -1/2. 
+							while (0 <= 16)
+								{ 
+									while ((0 == 8+(-1/2)) not gonna pass, so no print_dollar_door,
+										instead, ft_putchar('*') and i is 0 to 1.
+										then back up, while (1 <= 16), then this is gonna do until
+										i becomes 8, then it will be while((8 == 8 + -(1/2))
+										
+							
