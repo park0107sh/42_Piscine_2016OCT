@@ -1,0 +1,6 @@
+Credentials cache: API:22889
+        Principal: sopark@42.US.ORG
+
+  Issued                Expires               Principal
+Oct 24 13:10:48 2016  Oct 24 23:10:48 2016  krbtgt/42.US.ORG@42.US.ORG
+Oct 24 13:10:50 2016  Oct 24 23:10:48 2016  ldap/ldap-proxy.42.us.org@42.US.ORG
