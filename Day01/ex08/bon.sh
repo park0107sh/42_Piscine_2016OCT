@@ -1,0 +1,1 @@
+ldapsearch -x -LLL cn="*bon*" cn | wc -l
