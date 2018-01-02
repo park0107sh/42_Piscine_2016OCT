@@ -1,0 +1,48 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    text.txt                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: sopark <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/11/05 23:07:43 by sopark            #+#    #+#              #
+#    Updated: 2016/11/05 23:21:13 by sopark           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+For Validate Function and what it does :
+
+This validation checks whether our numbers in sudo table is "correct."
+By correct, I mean by sudo rules.
+As you know, the numbers can't be repeated in the same row or in the same column.
+Also, the numbers can't be repeated in the respective 3*3 squares. 
+The first while loop is going to evaluate if there's any number repeated in the rows and columns.
+in other words : if((numbers[i][col] == value) || (numbers[rows][i] == value))
+And if it does find an equal value from the argvs arrays (our inputs to the function), then it returns 0,
+meaning that it broke the sudo rules. The counnter 'i' stops at nine(9) because it is counting from 0 to 8.
+Then, this happening of 9 looping means that there wasn't any repeated number in every column and every row. So, the answer.
+The next while loops are checking for the square boxes. (three by three boxes)
+It it finds a repeated value, then returns 0 and if not, then 1 which is what we want.
+
+So basically, we are going to implement the return value of this validate function which is always going to be either 0 or 1.
+
+------------------------------------------------------
+
+For Sudoku Main Program and what it does : 
+
+So, this is going to be our main mechanism for our sudo codes, basically how it goes to fill the numbers and how it outputs them as well.
+It contains a recursive structure. As long as there is an answer to our inputs, then it will return sudo answer and our sudoku_solver
+will return 1. The variable x and y stands for the number[x][y], and the variable i is used for checking for each position in the board.
+(the whole board is 81 spaces, so it will go around 81 times. while loops are 9 times each, but we have two main while loops for filling in.)
+First, we divide the x by 9 to signify the position of the rows.
+Second, we divide the y by 9 and use the remainder to signify the position of the columns.
+If the value is greater than 81, then it means the checking has been done for 81 lines and we are good to print the board out.
+If not, then the function will run again in recursive structure.
+While the 'while (i < 10)', it is going to call the function validate up to 9 times.
+It will asign the values of i starting at 1, to the numbers [x][y] directly.
+This means that the validate function is going to start at the first point of the board, and moves forward each time for each i increment.
+There is a recurisve at the if condition inside the while that is going to call the function sudoku_solver itself.
+It will try to solve the first point of the board, and if it does, it will return a 1.
+Then, we have if (1) statement, and the value of i is going to increment by 1, which means to go to the next point.
+This will be done 9 times, and once it finds the whole board, meaning that every spot is now filled up, and the value equals to 81,
+then it is going to return 1 to the main, and finish the program and goes to print them out with 'print_out_sudocode' function.
